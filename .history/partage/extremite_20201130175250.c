@@ -6,7 +6,7 @@
  */
 void extout(int tun) {
     char * port = "123";
-    int s, n, len, on = 1;
+    int s,n, len, on = 1;
 
     struct sockaddr_in client;
     struct addrinfo * resol; 
@@ -76,7 +76,7 @@ void extout(int tun) {
         }else{ 
             fprintf(stderr,"accept! (%i) ip=%s port=%s\n",n,hotec,portc);
         }
-        writeSrcInDst(n, tun);
+        writeSrcInDst(n, 1);
     }
 }
 

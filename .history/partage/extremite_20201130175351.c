@@ -76,7 +76,7 @@ void extout(int tun) {
         }else{ 
             fprintf(stderr,"accept! (%i) ip=%s port=%s\n",n,hotec,portc);
         }
-        writeSrcInDst(n, tun);
+        writeSrcInDst(n, 1);
     }
 }
 
