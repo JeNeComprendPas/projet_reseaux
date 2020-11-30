@@ -1,7 +1,7 @@
 #include "tunalloc.h"
 
 int main (int argc, char** argv){
-  if(argc < 3) {
+  if(argc < 2) {
     perror("arguments");
     exit(0);
   }
@@ -16,7 +16,7 @@ int main (int argc, char** argv){
     extout();
   }
   else {
-    extin(fd, argv[2]);
+    extin(fd, argv[1]);
   }
   getchar();
   return 0;

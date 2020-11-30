@@ -1,0 +1,24 @@
+CC     = gcc
+CFLAGS = -Wall -W -std=c99 -pedantic -O2 -g
+LIBS   = 
+EXEC   = tunalloc
+
+all: $(EXEC)
+
+tunalloc: tunalloc.o iftun.o extremite.o
+		$(CC) -o $@ $^ $(LIBS)
+
+tunalloc.o: tunalloc.c tunalloc.h iftun.h extremite.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+iftun.o: iftun.c iftun.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+extremite.o: extremite.c extremite.h iftun.h netdb.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+clean:
+		rm -rf *.o *.txt
+
+mrpropre: clean
+		rm -rf $(EXEC)

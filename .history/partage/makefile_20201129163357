@@ -1,0 +1,33 @@
+CC=gcc
+CFLAGS= -Wall -W -std=c99 -pedantic -O2 -g
+LIBS   = -lX11 -lXext
+EXEC=packing
+
+all: $(EXEC)
+
+packing: main.o boites.o fonctionUsuelles.o generateur.o lectureTexte.o ez-draw.o affichageGraphique.o
+		$(CC) -o $@ $^ $(LIBS)
+
+main.o: main.c main.h boites.h fonctionUsuelles.h generateur.h lectureTexte.h affichageGraphique.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+boites.o: boites.c boites.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+fonctionUsuelles.o: fonctionUsuelles.c fonctionUsuelles.h generateur.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+generateur.o: generateur.c generateur.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+lectureTexte.o: lectureTexte.c lectureTexte.h generateur.h boites.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+affichageGraphique:o affichageGraphique.c affichageGraphique.h ez-draw.h generateur.h boites.h lectureTexte.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+clean:
+		rm -rf *.o *.txt
+
+mrproper: clean
+		rm -rf $(EXEC)

@@ -16,7 +16,7 @@ int main (int argc, char** argv){
     extout();
   }
   else {
-    extin(fd, argv[2]);
+    extin(fd, argv[1]);
   }
   getchar();
   return 0;

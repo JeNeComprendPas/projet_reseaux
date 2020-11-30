@@ -1,0 +1,24 @@
+CC     = gcc
+CFLAGS = 
+LIBS   = 
+EXEC   = tunalloc
+
+all: $(EXEC)
+
+tunalloc: tunalloc.o iftun.o extremite.o
+		$(CC) -o $@ $^ $(LIBS)
+
+tunalloc.o: tunalloc.c tunalloc.h iftun.h extremite.h
+		$(CC) -o $@ -c $< 
+
+iftun.o: iftun.c iftun.h
+		$(CC) -o $@ -c $< 
+
+extremite.o: extremite.c extremite.h iftun.h
+		$(CC) -o $@ -c $< 
+
+clean:
+		rm -rf *.o *.txt
+
+mrpropre: clean
+		rm -rf $(EXEC)

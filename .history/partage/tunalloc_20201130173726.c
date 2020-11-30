@@ -1,11 +1,6 @@
 #include "tunalloc.h"
 
 int main (int argc, char** argv){
-  if(argc < 3) {
-    perror("arguments");
-    exit(0);
-  }
-
   int fd = createInterface(argc, argv);
   printf("Interface crée, descripteur : %d\n", fd);
 
@@ -16,7 +11,7 @@ int main (int argc, char** argv){
     extout();
   }
   else {
-    extin(fd, argv[2]);
+    extin(fd);
   }
   getchar();
   return 0;
