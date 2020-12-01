@@ -1,5 +1,5 @@
-#ifndef IFTUN_H
-#define IFTUN_H
+#ifndef TUNNEL64D_H
+#define TUNNEL64D_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,13 +8,19 @@
 #include <sys/stat.h>
 #include <sys/ioctl.h>
 
+#include "configuration.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <linux/if.h>
 #include <linux/if_tun.h>
 
-int tun_alloc(char *dev);
-void writeSrcInDst(int src, int dst);
-int createInterface(char * name);
+#include<sys/sem.h>
+
+#include "iftun.h"
+#include "extremite.h"
+
+#define KEY 0x1111
+
+int main (int argc, char** argv);
 
 #endif

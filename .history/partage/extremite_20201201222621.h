@@ -18,6 +18,6 @@
 #define CIAO "Au revoir ...\n"
 
 void extout(int tun, char * port, char * options);
-void extin(int tun, char * hote, char * port);
+void extin(int tun, char * hote);
 
 #endif

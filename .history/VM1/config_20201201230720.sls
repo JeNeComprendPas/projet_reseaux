@@ -63,9 +63,6 @@ net.ipv6.conf.all.forwarding:
     - present
     - value: 1
 
-screen:
-  pkg.installed
-
 screen -S tunnel ../../mnt/partage/tunnel64d:
   cmd:
     - run

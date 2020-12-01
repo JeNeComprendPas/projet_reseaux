@@ -79,7 +79,8 @@ void extout(int tun, char * port, char * options) {
     }
 }
 
-void extin(int tun, char * hote, char * port) {
+void extin(int tun, char * hote) {
+    char * port = "123";
     char ip[NI_MAXHOST]; 
     struct addrinfo *resol;
     char * tmpdst; 

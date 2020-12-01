@@ -1,6 +1,10 @@
 # Configuration eth1
 # RAPPEL: eth0 est à vagrant, ne pas y toucher
 
+apt-get install screen:
+  cmd:
+    - run
+
 ## Désactivation de network-manager
 NetworkManager:
   service:
@@ -62,9 +66,6 @@ net.ipv6.conf.all.forwarding:
   sysctl:
     - present
     - value: 1
-
-screen:
-  pkg.installed
 
 screen -S tunnel ../../mnt/partage/tunnel64d:
   cmd:
